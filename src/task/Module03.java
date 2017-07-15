@@ -5,34 +5,36 @@ import java.util.Arrays;
 
 /**
  * Created by VladislavGolovatyuk on 15.07.17.
- * @version 1.1
+ * @version 1.2
  */
 public class Module03 {
     public static void main(String[] args) {
 
-        //ввод размера массива
+
+        //ввод и вычисление размера массива
 
         Scanner sc = new Scanner(System.in);
 
+
         System.out.println("Здравствуйте!!! Сегодня Вы увидите свой первый Java массив.");
-        System.out.println("Для этого следуй инструкциям с консоли и удачи)");
+        System.out.println("Для этого следуй инструкциям из консоли и удачи)");
         System.out.println();
-        System.out.println();
-        System.out.println("Введите пожалуйста желаемую длину массива");
+        System.out.println("Вводите через пробел числа, которые вы бы хотели увидеть в " +
+                "Вашем массиве, а когда устаните это делать нажмите ENTER:)");
 
-        int arraysLenght = sc.nextInt();
-        int[] myArray = new int[arraysLenght];
+        String array = sc.nextLine();
 
-        System.out.println("Отлично, вы создали массив на " + arraysLenght + " элементов(-а), а теперь" +
-                " давайте заполним массив числами.");
-        System.out.println("Вводите числа с клавиатуры, разделяя их пробелами: ");
-        System.out.println("П.С. попробуйте вести несколько элементов со значением 5 и у видите их количество в массиве.");
-        System.out.println("А после нажатия клавиши ENTER, вы получите информацыию о своем первом Java массиве)");
+        int sizeOfMyArray = 0;
+            for (String retval : array.split(" ")) {
+                sizeOfMyArray++;
+        }
 
-        //заполнение массива элементами с клавиатуры
+        int myArray[] = new int[sizeOfMyArray];
+        int counterOfIndex = 0;
 
-        for (int i = 0; i < myArray.length; i++) {
-            myArray[i] = sc.nextInt();
+        for (String retval : array.split(" ")) {
+            myArray[counterOfIndex] = Integer.parseInt(retval);
+            counterOfIndex++;
         }
 
         String s = Arrays.toString(myArray);
@@ -80,11 +82,10 @@ public class Module03 {
                     int t = myArray[j];
                     myArray[j] = myArray[j - 1];
                     myArray[j - 1] = t;
-
                 }
-
             }
         }
+
         String x = Arrays.toString(myArray);
         System.out.println();
 
@@ -119,12 +120,12 @@ public class Module03 {
                 finalMin = myArray2[i];
             }
         }
+        
         System.out.println("В Вашем массиве, одинаковое число максимально " +
                 "выводится : " + finalMax + " раз.");
         System.out.println();
         System.out.println("В Вашем массиве, одинаковое число минимально " +
                 "выводится : " + finalMin + " раз.");
-
 
     }
 }
