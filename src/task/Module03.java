@@ -5,7 +5,7 @@ import java.util.Arrays;
 
 /**
  * Created by VladislavGolovatyuk on 15.07.17.
- * @version 1.0
+ * @version 1.1
  */
 public class Module03 {
     public static void main(String[] args) {
@@ -90,8 +90,43 @@ public class Module03 {
 
         System.out.println("А вот-так выглядит Ваш массив после bubbleSort");
         System.out.println(x);
+        System.out.println();
+
+        // выведение максимального и минимального количества повторений
+
+        int[] myArray2 = new int[myArray.length];
+        int maxNumberRepeat = 0;
+        for (int i = 0; i < myArray.length; i++) {
+            for (int j = 0; j < myArray.length; j++) {
+                if (myArray[i] == myArray[j]) {
+                    maxNumberRepeat++;
+                }
+            }
+            myArray2[i] = maxNumberRepeat;
+            maxNumberRepeat = 0;
+        }
+
+        int finalMax = myArray2[0];
+        for (int i = 0; i < myArray2.length; i++) {
+            if (myArray2[i] > finalMax) {
+                finalMax = myArray2[i];
+            }
+        }
+
+        int finalMin = myArray2[0];
+        for (int i = 0; i < myArray2.length; i++) {
+            if (myArray2[i] != finalMin) {
+                finalMin = myArray2[i];
+            }
+        }
+        System.out.println("В Вашем массиве, одинаковое число максимально " +
+                "выводится : " + finalMax + " раз.");
+        System.out.println();
+        System.out.println("В Вашем массиве, одинаковое число минимально " +
+                "выводится : " + finalMin + " раз.");
+
+
     }
-
-
-
 }
+
+
